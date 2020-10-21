@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="duel.js"></script>
+    <script src="index.css"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Time to Duel</title>
+</head>
+<body>
+    
+    <form>
+        <select id='drop1' name = "dropdown1">
+            <option selected disabled>Select Character</option>
+            <option>Random</option>
+        </select>
+    </form>
+
+    <form>
+        <select id='drop2' name = "dropdown2">
+            <option selected disabled>Select Character</option>
+            <option>Random</option>
+        </select>
+    </form>
+
+    <form>
+        <select id='spell1'>
+            <option selected disabled>Select Spell Type</option>
+            <option>Random</option>
+        </select>
+    </form>
+
+    <form>
+        <select id='spell2'>
+            <option selected disabled>Select Spell Type</option>
+            <option>Random</option>
+        </select>
+    </form>
+    
+    <div class="duelers">
+        <span id='dueler1'></span>
+        <span id='dueler2'></span>
+        <span id='dueler1spell'></span>
+        <span id='dueler2spell'></span>
+    </div>
+
+    <button type="duelButton">DUEL!</button>
+
+</body>
+</html>
