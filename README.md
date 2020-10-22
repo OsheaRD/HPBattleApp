@@ -1,7 +1,7 @@
-# HPBattleApp
+# HP Battle App
 
 
-### Overview
+## Overview
 
 The HP Battle App features a generic wizard boy who casts spells with his school mates.  Attempt to select the correct character and spell to be the victor!
 
