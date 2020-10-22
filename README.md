@@ -2,17 +2,13 @@
 
 ## Contributors
 
-<a href="https://github.com/OsheaRD/HPBattleApp/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=OsheaRD/HPBattleApp" />
-</a>
-
-<a href="https://github.com/nastrodamous/harrydueling/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=nastrodamous/harrydueling" />
-</a>
-
-<a href="https://github.com/josuemajano/harrydueling/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=josuemajano/harrydueling" />
-</a>
+Team Member | Role
+------------ | -------------
+Andre Davis | Content from cell 2
+Josue Majano | Content in the second column
+Oshea Deans | Design, UI/UX 
+ 
+ ## Tech Stack
  
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)&nbsp;
 ![HTML](https://img.shields.io/badge/-HTML-333333?style=flat&logo=HTML5)&nbsp;
