@@ -3,50 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Jacques+Francois+Shadow|Lacquer&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="duel.js"></script>
     <script src="index.css"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Time to Duel</title>
 </head>
+
 <body>
-    
-    <form>
-        <select id='drop1' name = "dropdown1">
-            <option selected disabled>Select Character</option>
-            <option>Random</option>
-        </select>
-    </form>
+    <!-- <img class="bg" src="/img/potterduel.jpg" /> -->
+   
+    <div class="container">
+        <div class="row">
+             <div class="col-md-6">
+                <p class="text-center">
+             <div class="Player1">
+                <form>
+                <select id='drop1' name = "dropdown1">
+                    <option selected disabled>Select Character</option>
+                    <option>Random</option>
+                </select>
+                </form>
+                <form>
+                <select id='spell1'>
+                    <option selected disabled>Select Spell Type</option>
+                    <option>Random</option>
+                </select>
+                </form>
+         </div>
+        </p>
+        </div>
 
-    <form>
-        <select id='drop2' name = "dropdown2">
-            <option selected disabled>Select Character</option>
-            <option>Random</option>
-        </select>
-    </form>
-
-    <form>
-        <select id='spell1'>
-            <option selected disabled>Select Spell Type</option>
-            <option>Random</option>
-        </select>
-    </form>
-
-    <form>
-        <select id='spell2'>
-            <option selected disabled>Select Spell Type</option>
-            <option>Random</option>
-        </select>
-    </form>
-    
-    <div class="duelers">
-        <span id='dueler1'></span>
-        <span id='dueler2'></span>
-        <span id='dueler1spell'></span>
-        <span id='dueler2spell'></span>
+        <div class="col-md-6">
+            <p class="text-center">
+            <div class="player2">
+                <form>
+                    <select id='drop2' name = "dropdown2">
+                        <option selected disabled>Select Character</option>
+                        <option>Random</option>
+                    </select>
+                </form>
+            
+                <form>
+                    <select id='spell2'>
+                        <option selected disabled>Select Spell Type</option>
+                        <option>Random</option>
+                    </select>
+                </form>
+            
+                </div>
+       
+            </p>
+      </div>
     </div>
+</div>
+ 
 
-    <button type="duelButton">DUEL!</button>
+<div class="container_button">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <p class="text-center">
+        <div class="victor">
+    
+        <div class="duelers">
+            <span id='dueler1'></span>
+            <span id='dueler2'></span>
+            <span id='dueler1spell'></span>
+            <span id='dueler2spell'></span>
+        </div>
+    
+        <button type="duelButton">DUEL!</button>
+        </div>
+    </p>
+    </div>
+  </div>
 
+</div>
+
+
+   
 </body>
 </html>
