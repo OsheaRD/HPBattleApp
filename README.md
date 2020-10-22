@@ -1,5 +1,5 @@
 # HP Battle App
-![Alt Text](https://i.gifer.com/BAIt.gif)
+![Alt Text](https://media.giphy.com/media/8bU4oT9rLNWSY/giphy.gif)
 
 <iframe src="https://gifer.com/embed/BAIt" width=480 height=360.000 frameBorder="0" allowFullScreen></iframe><p><a href="https://gifer.com">via GIFER</a></p>
 
