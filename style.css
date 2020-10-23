@@ -1,3 +1,45 @@
+@font-face {
+    font-family: 'HARRYP__';
+    src: url('/'), url('/fonts/HARRYP__.TTF') format('truetype'), url('/fonts/HARRYP__.TTF') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#newfont{
+    font-family: 'HARRYP__';
+}
+.titles{
+
+    position: sticky;
+    top: 0;
+    line-height: auto;
+}
+h1{
+    /* position: sticky; */
+    top: 0;
+    font-family: harryp__;
+    font-size: 220px;
+    text-align: center;
+    color: white;
+    stroke-width: 5px;
+    stroke: black;
+    margin: -30px;
+
+}
+
+h2{
+    /* position: sticky; */
+    top: auto;
+    font-family: harryp__;
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    stroke-width: 2px;
+    stroke: black;
+    margin: auto;
+
+}
+
 body { 
     background: url(/img/potterduel.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -6,7 +48,61 @@ body {
     background-size: cover;
   }
 
-  .container_button{
-      justify-content: center;
+  .Player1{
+    color: orange;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
 
+  }
+
+  .player2{
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+
+  }
+
+  .duel{
+      font-size: 20pt;
+      color: aquamarine;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      width: 300px;
+      height: 100px;
+      padding: auto;
+      border: 3px solid white;
+      box-sizing: border-box;
+
+  }
+
+  .victor {
+    font-size: 20pt;
+    color: aquamarine;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 150px;
+    padding: auto;
+    border: 3px solid white;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    font-size: 16pt;
+    position: fixed;
+    padding-top: 10px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:lightcyan;
+    color: black;
+    text-align: center;
+    border: 3pt;
+    box-sizing: border-box;
+    border-style: solid;
   }
