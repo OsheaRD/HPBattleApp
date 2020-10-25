@@ -69,6 +69,22 @@ mapSpells = async (currentSpell) => {
       }
     });
 
+let x = spell.length
+while(x >= 24) {
+    let popped = spell.pop();
+    if(charm.length >= 23) {
+        let charmSpell = charm.pop();
+        hex.push(charmSpell);
+    } else if(curse.length <= 21) {
+        curse.push(popped);
+    } else if(enchantment.length <= 21) {
+        enchantment.push(popped);
+    } else if(jinx.length <= 21) {
+        jinx.push(popped);
+    } 
+    x--;
+}
+
 //Removes duplicates from spelltypes array
 spellList = [...new Set(newSpellTypes)];
 spellList.forEach(element => {
@@ -112,3 +128,10 @@ getRandomSpell = (spellList) => {
 }
 
 
+// talk = (text) => {
+//     TextToSpeech.talk(text)
+// }
+
+// talk("blah")
+
+//TODO: At start have computer be a random character wtih random spell type connected
