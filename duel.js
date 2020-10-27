@@ -7,7 +7,8 @@ let spell = [];
 let curse = [];
 let jinx = [];
 let hex = [];
-
+let newArray = [];
+let spellArray = [];
 
 //Grab all chracters
 axios.get(`https://www.potterapi.com/v1/characters?key=$2a$10$kEWfepxiOOkIh/QC00kc2.sz3y.jwyUj/SmEzsFSsX5yEAxEeKO.u`)
@@ -46,47 +47,23 @@ mapSpells = async (currentSpell) => {
     let i = 2;
     let newSpellTypes = [];
    currentSpell.forEach(element => {
-    newSpellTypes.push(element.type)
-      switch(`${element.type}`) {
-        case "Charm":
-              charm.push(`${element.spell}`);
-              break;
-        case "Enchantment":
-            enchantment.push(`${element.spell}`);
-                break;
-        case "Spell":
-            spell.push(`${element.spell}`);
-                break;
-        case "Curse":
-            curse.push(`${element.spell}`);
-              break;
-        case "Jinx":
-            jinx.push(`${element.spell}`);
-                break;
-        case "Hex":
-            hex.push(`${element.spell}`);
-                break;
-      }
+    newArray.push(element.spell)
+      newSpellTypes.push(element.type)
     });
 
-let x = spell.length
-while(x >= 24) {
-    let popped = spell.pop();
-    if(charm.length >= 23) {
-        let charmSpell = charm.pop();
-        hex.push(charmSpell);
-    } else if(curse.length <= 21) {
-        curse.push(popped);
-    } else if(enchantment.length <= 21) {
-        enchantment.push(popped);
-    } else if(jinx.length <= 21) {
-        jinx.push(popped);
-    } 
-    x--;
-}
+sliceArray(newArray, charm)
+sliceArray(newArray, enchantment)
+sliceArray(newArray, curse)
 
 //Removes duplicates from spelltypes array
 spellList = [...new Set(newSpellTypes)];
+
+for(let i=spellList.length - 1;i >= 0;i--) {
+    if(spellList[i] === "Hex" || spellList[i] === "Jinx" || spellList[i] === "Spell") {
+        spellList.splice(i,1)
+    }
+}
+console.log(spellArray);
 spellList.forEach(element => {
     let option = document.createElement("option");
     option.text = element;
@@ -95,6 +72,11 @@ spellList.forEach(element => {
 document.getElementById("spell2").innerHTML = spell1.innerHTML
 }
 
+function sliceArray(a, b) {
+    let size = 50;
+    b.push(a.splice(0, size))
+    
+}
 
 //game logic
 
@@ -112,18 +94,12 @@ getRandomName = (duelist) => {
 getRandomSpell = (spellList) => {
     randomType = spellList[Math.floor(Math.random() * spellList.length)];
     switch(randomType) {
-        case "Charm":
+        case "Charm": //rock
             return charm[Math.floor(Math.random() * charm.length)]
-        case "Enchantment":
+        case "Enchantment": // paper
             return enchantment[Math.floor(Math.random() * enchantment.length)]
-        case "Spell":
-            return spell[Math.floor(Math.random() * spell.length)]
-        case "Curse":
+        case "Curse": //scissor
             return curse[Math.floor(Math.random() * curse.length)]
-        case "Jinx":
-            return jinx[Math.floor(Math.random() * jinx.length)]
-        case "Hex":
-            return hex[Math.floor(Math.random() * hex.length)]
       }  
 }
 
