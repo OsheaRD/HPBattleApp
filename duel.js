@@ -10,6 +10,11 @@ let hex = [];
 let newArray = [];
 let spellArray = [];
 
+const db = firebase.firestore();
+const increment = firebase.firestore.FieldValue.increment(1);
+let winnersRef;
+let unsubscribe;
+
 //Grab all chracters
 axios.get(`https://www.potterapi.com/v1/characters?key=$2a$10$kEWfepxiOOkIh/QC00kc2.sz3y.jwyUj/SmEzsFSsX5yEAxEeKO.u`)
 .then(
@@ -145,6 +150,29 @@ getRandomSpell = (spellList) => {
       }  
 }
 
+writeInitialWin = (winner) => {
+    winnersRef = db.collection('winners').doc(`${winner}`);
+    winnersRef.set({
+        wins: 1
+    });
+
+}
+
+updateWin = (winner) => {
+    const batch = db.batch();
+    winnersRef = db.collection('winners').doc(`${winner}`);
+    batch.set(winnersRef,{wins: increment}, {merge: true});
+    batch.commit();
+}
+
+checkWinner = (winner) => {
+    winnersRef = db.collection('winners').doc(`${winner}`);
+    if(!winnersRef.exists) {
+        updateWin(`${winner}`)
+    } else {
+        writeInitialWin(`${winner}`)
+    }
+}
 
 // talk = (text) => {
 //     TextToSpeech.talk(text)
