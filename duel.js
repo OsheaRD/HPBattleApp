@@ -96,48 +96,44 @@ duelButton.addEventListener("click", function() {
     console.log('player one chose ', player1Spell);
     let player2Spell = document.getElementById('spell2').value;
     console.log('player two chose ', player2Spell);
+    checkWinner(duelApp(player1,player2,player1Spell,player2Spell));
 });
 
-function duelApp(player1, player2) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
-    if (player1 === player2) {
-        return "Game tied. Try again may the best wizard win!";
+function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
+    if (player1Spell === player2Spell) {
+        return console.log("Game tied. Try again may the best wizard win!");
     }
 
-    else if (player1 === "Charm") {
-        if (player2 === "Enchantment") {
-            return "Player 2 wins!";
+    else if (player1Spell === "Charm") {
+        if (player2Spell === "Enchantment") {
+            return `${player2}`;
         } else {
-            return "Player 1 wins!"
+            return `${player1}`
         }
     }
-    else if (player1 === "Curse") {
-        if (player2 === "Charm") {
-            return "Player 2 wins!";
+    else if (player1Spell === "Curse") {
+        if (player2Spell === "Charm") {
+            return `${player2}`
         } else {
-            return "Player 1 wins!";
+            return `${player1}`
         }
     }
-    else if (player1 === "Enchantment") {
-        if (player2 === "Curse") {
-            return "Player 2 wins!";
+    else if (player1Spell === "Enchantment") {
+        if (player2Spell === "Curse") {
+            return `${player2}`
         } else {
-            return "Player 1 wins!";
+            return `${player1}`
         }
     }
 }
-console.log(duelApp("Enchantment", "Curse"));
 
-// let charm > en > spell > curse > jinx > hex
-checkWinner = (duelist1,duelist2) => {
 
-}
-
-//select random
+//TODO:Check why not working
 getRandomName = (duelist) => {
  return randomName = duelist[Math.floor(Math.random() * duelist.length)];
 }
 
-
+//TODO:Check why not working
 getRandomSpell = (spellList) => {
     randomType = spellList[Math.floor(Math.random() * spellList.length)];
     switch(randomType) {
@@ -155,7 +151,6 @@ writeInitialWin = (winner) => {
     winnersRef.set({
         wins: 1
     });
-
 }
 
 updateWin = (winner) => {
@@ -173,11 +168,3 @@ checkWinner = (winner) => {
         writeInitialWin(`${winner}`)
     }
 }
-
-// talk = (text) => {
-//     TextToSpeech.talk(text)
-// }
-
-// talk("blah")
-
-//TODO: At start have computer be a random character wtih random spell type connected
