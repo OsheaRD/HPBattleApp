@@ -80,6 +80,48 @@ function sliceArray(a, b) {
 
 //game logic
 
+let duelButton = document.getElementById('duelButton');
+duelButton.addEventListener("click", function() {
+    console.log('game has started');
+    let player1 = document.getElementById('drop1').value
+    console.log(player1);
+    let player2 = document.getElementById('drop2').value
+    console.log(player2);
+    let player1Spell = document.getElementById('spell1').value;
+    console.log('player one chose ', player1Spell);
+    let player2Spell = document.getElementById('spell2').value;
+    console.log('player two chose ', player2Spell);
+});
+
+function duelApp(player1, player2) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
+    if (player1 === player2) {
+        return "Game tied. Try again may the best wizard win!";
+    }
+
+    else if (player1 === "Charm") {
+        if (player2 === "Enchantment") {
+            return "Player 2 wins!";
+        } else {
+            return "Player 1 wins!"
+        }
+    }
+    else if (player1 === "Curse") {
+        if (player2 === "Charm") {
+            return "Player 2 wins!";
+        } else {
+            return "Player 1 wins!";
+        }
+    }
+    else if (player1 === "Enchantment") {
+        if (player2 === "Curse") {
+            return "Player 2 wins!";
+        } else {
+            return "Player 1 wins!";
+        }
+    }
+}
+console.log(duelApp("Enchantment", "Curse"));
+
 // let charm > en > spell > curse > jinx > hex
 checkWinner = (duelist1,duelist2) => {
 
