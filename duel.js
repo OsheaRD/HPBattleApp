@@ -114,7 +114,7 @@ duelButton.addEventListener("click", function() {
 
 function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
     if (player1Spell === player2Spell) {
-        return console.log("Game tied. Try again may the best wizard win!");
+        return console.log("Game tied. Try again and may the best wizard win!");
     }
 
     else if (player1Spell === "Charm") {
@@ -139,7 +139,6 @@ function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock
         }
     }
 }
-
 
 //TODO:Check why not working
 getRandomName = (duelist) => {
