@@ -48,7 +48,7 @@ axios.get(`https://www.potterapi.com/v1/spells?key=$2a$10$kEWfepxiOOkIh/QC00kc2.
 )
 
 mapSpells = async (currentSpell) => {
-    let spell1 =  document.getElementById("spell1")
+    let spell1 =  document.getElementById("spellRadio1")
     let i = 2;
     let newSpellTypes = [];
    currentSpell.forEach(element => {
@@ -68,13 +68,26 @@ for(let i=spellList.length - 1;i >= 0;i--) {
         spellList.splice(i,1)
     }
 }
+//<input type="radio" id="male" name="gender" value="male">
 console.log(spellArray);
+let radioDiv = document.getElementById('spellRadio1');
 spellList.forEach(element => {
-    let option = document.createElement("option");
-    option.text = element;
-    spell1.add(option,i);
+
+  let radio = document.createElement('input');
+  let label = document.createElement('label');
+  const br = document.createElement('br')
+  radio.type = 'radio';
+  radio.name = "spell";
+  radio.value =`${element}`;
+
+  label.setAttribute("for", `${element}`);
+  label.innerHTML = `${element}`;
+  radioDiv.appendChild(radio)
+  radioDiv.appendChild(label)
+  radioDiv.appendChild(br)
+
 })
-document.getElementById("spell2").innerHTML = spell1.innerHTML
+document.getElementById("spellRadio2").innerHTML = spellRadio1.innerHTML
 }
 
 function sliceArray(a, b) {
@@ -96,7 +109,7 @@ duelButton.addEventListener("click", function() {
     console.log('player one chose ', player1Spell);
     let player2Spell = document.getElementById('spell2').value;
     console.log('player two chose ', player2Spell);
-    checkWinner(duelApp(player1,player2,player1Spell,player2Spell));
+    checkWinner(duelApp(player1,player2,player1Spell,player2Spell))
 });
 
 function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
@@ -106,7 +119,7 @@ function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock
 
     else if (player1Spell === "Charm") {
         if (player2Spell === "Enchantment") {
-            return `${player2}`;
+            return `${player2}`
         } else {
             return `${player1}`
         }
@@ -146,25 +159,32 @@ getRandomSpell = (spellList) => {
       }  
 }
 
-writeInitialWin = (winner) => {
+writeInitialWin = async (winner) => {
     winnersRef = db.collection('winners').doc(`${winner}`);
     winnersRef.set({
+        name: `${winner}`,
         wins: 1
     });
+    unsubscribe = winnersRef
 }
 
-updateWin = (winner) => {
+updateWin = async (winner) => {
     const batch = db.batch();
     winnersRef = db.collection('winners').doc(`${winner}`);
     batch.set(winnersRef,{wins: increment}, {merge: true});
     batch.commit();
 }
 
-checkWinner = (winner) => {
+checkWinner = async (winner) => {
     winnersRef = db.collection('winners').doc(`${winner}`);
-    if(!winnersRef.exists) {
+    if(winnersRef.exists) {
         updateWin(`${winner}`)
     } else {
         writeInitialWin(`${winner}`)
     }
+}
+
+createTable = async () => {
+    const snapshot = await firebase.firestore().collection('winners').get()
+    return snapshot.docs.map(doc => doc.data());
 }
