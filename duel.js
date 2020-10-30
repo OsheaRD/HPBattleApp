@@ -76,6 +76,7 @@ spellList.forEach(element => {
   let radio = document.createElement('input');
   let label = document.createElement('label');
   const br = document.createElement('br')
+  radio.id = 'spell1Value';
   radio.type = 'radio';
   radio.name = "spell";
   radio.value =`${element}`;
@@ -85,9 +86,27 @@ spellList.forEach(element => {
   radioDiv.appendChild(radio)
   radioDiv.appendChild(label)
   radioDiv.appendChild(br)
-
 })
-document.getElementById("spellRadio2").innerHTML = spellRadio1.innerHTML
+
+let radioDiv2 = document.getElementById('spellRadio2');
+spellList.forEach(element => {
+
+  let radio2 = document.createElement('input');
+  let label2 = document.createElement('label');
+  const br = document.createElement('br')
+  radio2.id = 'spell2Value';
+  radio2.type = 'radio';
+  radio2.name = 'spell2';
+  radio2.value =`${element}`;
+
+  label2.setAttribute("for", `${element}`);
+  label2.innerHTML = `${element}`;
+  radioDiv2.appendChild(radio2)
+  radioDiv2.appendChild(label2)
+  radioDiv2.appendChild(br)
+})
+
+
 }
 
 function sliceArray(a, b) {
@@ -105,16 +124,16 @@ duelButton.addEventListener("click", function() {
     console.log(player1);
     let player2 = document.getElementById('drop2').value
     console.log(player2);
-    let player1Spell = document.getElementById('spell1').value;
+    let player1Spell = document.getElementById('spell1Value').value;
     console.log('player one chose ', player1Spell);
-    let player2Spell = document.getElementById('spell2').value;
+    let player2Spell = document.getElementById('spell2Value').value;
     console.log('player two chose ', player2Spell);
     checkWinner(duelApp(player1,player2,player1Spell,player2Spell))
 });
 
 function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
     if (player1Spell === player2Spell) {
-        return console.log("Game tied. Try again may the best wizard win!");
+        return console.log("Game tied. Try again and may the best wizard win!");
     }
 
     else if (player1Spell === "Charm") {
