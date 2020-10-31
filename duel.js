@@ -125,6 +125,12 @@ duelButton.addEventListener("click", function() {
     responsiveVoice.speak(`${player1} cast ${player1Spell[0]} ${player2} cast ${player2Spell[0]}`);
     checkWinner(duelApp(player1,player2,player1Spell[1],player2Spell[1]))
 });
+
+let resetButton = document.getElementById('resetButton');
+resetButton.addEventListener("click", function() {
+    document.location.href= [];
+})
+
 selectDuelist = () => {
 let player1 = document.getElementById('drop1').value
 if(player1 === 'Random') {
