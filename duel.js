@@ -109,6 +109,7 @@ getRandomName = (duelist) => {
 }
 
 
+
 getRandomSpell = (spellList) => {
     randomType = spellList[Math.floor(Math.random() * spellList.length)];
     switch(randomType) {
@@ -126,12 +127,3 @@ getRandomSpell = (spellList) => {
             return hex[Math.floor(Math.random() * hex.length)]
       }  
 }
-
-
-// talk = (text) => {
-//     TextToSpeech.talk(text)
-// }
-
-// talk("blah")
-
-//TODO: At start have computer be a random character wtih random spell type connected
