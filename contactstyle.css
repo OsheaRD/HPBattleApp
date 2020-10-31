@@ -76,3 +76,17 @@ h5{
     color:wheat;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: gray;
+    text-align: center;
+    font-size: 24px;
+    z-index: 2;
+}
+
+
+
