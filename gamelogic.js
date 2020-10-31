@@ -1,3 +1,8 @@
+const victoryMessages=[" is the Champion!", " emerges victorious!", " vanquisged his opponent!"];
+
+// literal !After "DUEL" is pressed the div underneath is populated with: (characterOne) used the (magic/ spell type) and (characterTwo) selected (magic/spell type) ...
+
+
 
 function rockPS(playerOne, playerTwo) {
     if (playerOne === playerTwo) {

@@ -165,7 +165,7 @@ getRandomName = (duelist) => {
  return randomName = duelist[Math.floor(Math.random() * duelist.length)];
 }
 
-//TODO:Check why not working
+ main
 getRandomSpell = (spellList) => {
     randomType = spellList[Math.floor(Math.random() * spellList.length)];
     switch(randomType) {
@@ -177,6 +177,7 @@ getRandomSpell = (spellList) => {
             return curse[Math.floor(Math.random() * curse.length)]
       }  
 }
+feature_spell_sorting
 
 writeInitialWin = async (winner) => {
     winnersRef = db.collection('winners').doc(`${winner}`);
@@ -207,3 +208,4 @@ createTable = async () => {
     const snapshot = await firebase.firestore().collection('winners').get()
     return snapshot.docs.map(doc => doc.data());
 }
+
