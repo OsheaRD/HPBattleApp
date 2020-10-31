@@ -1,6 +1,6 @@
 //defing all arrays
 let spellList = [];
-let duelist = [];
+var duelist = [];
 let charm = [];
 let enchantment = [];
 let spell = [];
@@ -113,35 +113,46 @@ spellList.forEach(element => {
 let duelButton = document.getElementById('duelButton');
 duelButton.addEventListener("click", function() {
     console.log('game has started');
-    let player1 = document.getElementById('drop1').value
+    let player1 = selectDuelist();
     console.log(player1);
-    let player2 = document.getElementById('drop2').value
+    let player2 = selectDuelist2();
     console.log(player2);
     let player1Spell = duelSpell();
     console.log(player1Spell);
     let player2Spell = duelSpell2();
     console.log(player2Spell);
     responsiveVoice.speak(`${player1} vs ${player2}`);
-    responsiveVoice.speak(`${player1} cast ${player1Spell} ${player2} cast ${player2Spell}`);
-    checkWinner(duelApp(player1,player2,player1Spell,player2Spell))
+    responsiveVoice.speak(`${player1} cast ${player1Spell[0]} ${player2} cast ${player2Spell[0]}`);
+    checkWinner(duelApp(player1,player2,player1Spell[1],player2Spell[1]))
 });
+selectDuelist = () => {
+let player1 = document.getElementById('drop1').value
+if(player1 === 'Random') {
+    return getRandomName(duelist);
+} else {
+    return player1
+}
+}
+
+selectDuelist2 = () => {
+let player2 = document.getElementById('drop2').value
+if(player2 === 'Random') {
+    return getRandomName(duelist);
+} else {
+    return player2
+}
+}
 
 duelSpell = () => {
     let player1Spell = document.getElementById('radio1').elements['spell'].value
-    if(player1Spell === 'Charm' || player1Spell === 'Enchantment' || player1Spell === 'Curse') {
-        return player1Spell
-    } else {
-        return getRandomSpell();
-    }
+    let spell = getRandomSpell(player1Spell)
+    return spell;
 }
 
 duelSpell2 = () => {
     let player2Spell = document.getElementById('radio2').elements['spell2'].value
-    if(player2Spell === 'Charm' || player2Spell === 'Enchantment' || player2Spell === 'Curse') {
-        return player2Spell
-    } else {
-        return getRandomSpell();
-    }
+    let spell = getRandomSpell(player2Spell)
+    return spell;
 }
 
 function duelApp(player1,player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
@@ -176,22 +187,25 @@ Array.prototype.random = function () {
     return this[Math.floor((Math.random()*this.length))];
   }
 
-//TODO:Check why not working
 getRandomName = (duelist) => {
-    duelist.random();
+     return duelist.random();
 }
 
-//TODO:Check why not working
-getRandomSpell = () => {
+
+getRandomSpell = (spell) => {
     const spellList = ["Charm", "Enchantment", 'Curse']
-    randomType = spellList[Math.floor(Math.random() * spellList.length)];
+    if(spellList.includes(spell)) {
+        randomType = spell;
+    } else {
+        randomType = spellList[Math.floor(Math.random() * spellList.length)];
+    }
     switch(randomType) {
         case "Charm": //rock
-            return charm.random();
+            return [charm.random(), randomType]
         case "Enchantment": // paper
-            return enchantment.random();
+            return [enchantment.random(), randomType];
         case "Curse": //scissor
-            return curse.random();
+            return [curse.random(), randomType]
       }  
 }
 
@@ -212,13 +226,17 @@ updateWin = async (winner) => {
 }
 
 checkWinner = async (winner) => {
-    document.getElementById('victor').innerHTML = `${winner}`
     winnersRef = await db.collection('winners').doc(`${winner}`);
-    if(winnersRef.exists) {
+    if(winner === undefined) {
+       responsiveVoice.speak('Duel ends in draw')
+       victor.innerHTML = 'Curses Duel Was a Tie'
+    } else if(winnersRef.exists) {
         responsiveVoice.speak(`${winner} wins!`);
+        victor.innerHTML = `${winner}`
         updateWin(`${winner}`)
     } else {
         responsiveVoice.speak(`${winner} wins!`);
+        victor.innerHTML = `${winner}`
         writeInitialWin(`${winner}`)
     }
 }
