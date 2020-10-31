@@ -71,7 +71,7 @@ body {
       background-color: black;
       display: flex;
       justify-content: center;
-      width: 300px;
+      width: auto;
       height: 100px;
       padding: auto;
       border: 3px solid white;
@@ -85,7 +85,7 @@ body {
     background-color: black;
     display: flex;
     justify-content: center;
-    width: 300px;
+    width: auto;
     height: 150px;
     padding: auto;
     border: 3px solid white;
@@ -106,3 +106,6 @@ body {
     box-sizing: border-box;
     border-style: solid;
   }
+
+
+  
