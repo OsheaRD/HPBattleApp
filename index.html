@@ -32,12 +32,11 @@
                     <option>Random</option>
                 </select>
                 </form>
-                <form>
-                <select id='spell1'>
-                    <option selected disabled>Select Spell Type</option>
-                    <option>Random</option>
-                </select>
-                </form>
+                <div id='spellRadio1'>
+                    <input id="spell1Value" type="radio" name="spell" value="Random">
+                    <label for="Random">Random</label>
+                    <br>
+                </div>
          </div>
         
         </div>
@@ -51,14 +50,11 @@
                         <option>Random</option>
                     </select>
                 </form>
-            
-                <form>
-                    <select id='spell2'>
-                        <option selected disabled>Select Spell Type</option>
-                        <option>Random</option>
-                    </select>
-                </form>
-            
+                <div id='spellRadio2'>
+                    <input id="spell2Value" type="radio" name="spell2" value="Random">
+                    <label for="Random">Random</label>
+                    <br>
+                </div>
                 </div>
        
            
@@ -78,7 +74,6 @@
 
         </div>
     
-        <button class="hpbutton" type="duelButton">DUEL!</button>
         </div>
     
     </div>
@@ -96,8 +91,37 @@
   
   </div>
    </div>
+feature_spell_sorting
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDadZvt4ozcbOwrfzf0N9gZam0hRWSf_Ao",
+    authDomain: "hpdueling.firebaseapp.com",
+    databaseURL: "https://hpdueling.firebaseio.com",
+    projectId: "hpdueling",
+    storageBucket: "hpdueling.appspot.com",
+    messagingSenderId: "188501079119",
+    appId: "1:188501079119:web:a0dea3470beaa1803a663a",
+    measurementId: "G-WCQ2XLV116"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+=======
 </div>
 
+main
 </body>
 </html>
 
