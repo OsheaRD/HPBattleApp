@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Jacques+Francois+Shadow|Lacquer&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="duel.js"></script>
+    <script src="index.css"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Time to Duel</title>
+</head>
+
+<body>
+    <!-- <img class="bg" src="/img/potterduel.jpg" /> -->
+<div class="titles">
+    <h1>Harry Potter</h1>
+    <h2>Battle App</h2>
+</div>
+    <div class="container">
+        <div class="row">
+             <div class="col-md-6">
+                <p class="text-center">
+             <div class="Player1">
+                <form>
+                <select id='drop1' name = "dropdown1">
+                    <option selected disabled>Select Character</option>
+                    <option>Random</option>
+                </select>
+                </form>
+                <div id='spellRadio1'>
+                <form id='radio1'>
+                    <input type="radio" name="spell" value="Random">
+                    <label for="Random">Random</label>
+                    <br>
+                </form>
+                </div>
+         </div>
+        </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="text-center">
+            <div class="player2">
+                <form>
+                    <select id='drop2' name = "dropdown2">
+                        <option selected disabled>Select Character</option>
+                        <option>Random</option>
+                    </select>
+                </form>
+                <div id='spellRadio2'>
+                <form id='radio2'>
+                    <input type="radio" name="spell2" value="Random">
+                    <label for="Random">Random</label>
+                    <br>
+                </form>
+                </div>
+                </div>
+       
+            </p>
+      </div>
+    </div>
+</div>
+ 
+
+<div class="container">
+<div class="row">
+    <div class="col-md-3 offset-4 ">
+      
+        <div class="duel">
+       
+        <div class="duelers">
+            <span id='dueler1'></span>
+            <span id='dueler2'></span>
+            <span id='dueler1spell'></span>
+            <span id='dueler2spell'></span>
+        </div>
+    
+        <button id="duelButton">DUEL!</button>
+        </div>
+    
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-4 ">
+            <div id="victor"></div>
+            <div id="winnersTable">
+                <table id="winnersInner">
+                  </table>
+                <button id='winnersButton'>Historic Winners</button>
+            </div>
+    </div>
+  
+  </div>
+   </div>
+
+   <div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-4 ">
+            <div id="restart"></div>
+            <div id="restartGame">
+                <button id='resetButton'>Restart Game</button>
+            </div>
+    </div>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=7kqJuIPD"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDadZvt4ozcbOwrfzf0N9gZam0hRWSf_Ao",
+    authDomain: "hpdueling.firebaseapp.com",
+    databaseURL: "https://hpdueling.firebaseio.com",
+    projectId: "hpdueling",
+    storageBucket: "hpdueling.appspot.com",
+    messagingSenderId: "188501079119",
+    appId: "1:188501079119:web:a0dea3470beaa1803a663a",
+    measurementId: "G-WCQ2XLV116"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</body>
+</html>
+
+<div>
+   
+    <a href="/contact.html">
+<div class="footer">
+    <p>Contact The Team         </p>
+  </div>
+
+    </a>
+
+</div>
