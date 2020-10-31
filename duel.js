@@ -9,6 +9,7 @@ let jinx = [];
 let hex = [];
 let newArray = [];
 let spellArray = [];
+let winners = [];
 
 const db = firebase.firestore();
 const increment = firebase.firestore.FieldValue.increment(1);
@@ -52,13 +53,14 @@ mapSpells = async (currentSpell) => {
     let i = 2;
     let newSpellTypes = [];
    currentSpell.forEach(element => {
-    newArray.push(element.spell)
+      newArray.push(element.spell)
       newSpellTypes.push(element.type)
     });
+    console.log(newArray)
 
-sliceArray(newArray, charm)
-sliceArray(newArray, enchantment)
-sliceArray(newArray, curse)
+charm = newArray.slice(0,50)
+curse = newArray.slice(50,100)
+enchantment = newArray.slice(100,150)
 
 //Removes duplicates from spelltypes array
 spellList = [...new Set(newSpellTypes)];
@@ -70,13 +72,12 @@ for(let i=spellList.length - 1;i >= 0;i--) {
 }
 //<input type="radio" id="male" name="gender" value="male">
 console.log(spellArray);
-let radioDiv = document.getElementById('spellRadio1');
+let radioDiv = document.getElementById('radio1');
 spellList.forEach(element => {
 
   let radio = document.createElement('input');
   let label = document.createElement('label');
   const br = document.createElement('br')
-  radio.id = 'spell1Value';
   radio.type = 'radio';
   radio.name = "spell";
   radio.value =`${element}`;
@@ -86,17 +87,16 @@ spellList.forEach(element => {
   radioDiv.appendChild(radio)
   radioDiv.appendChild(label)
   radioDiv.appendChild(br)
+
 })
 
-let radioDiv2 = document.getElementById('spellRadio2');
+let radioDiv2 = document.getElementById('radio2');
 spellList.forEach(element => {
-
   let radio2 = document.createElement('input');
   let label2 = document.createElement('label');
   const br = document.createElement('br')
-  radio2.id = 'spell2Value';
   radio2.type = 'radio';
-  radio2.name = 'spell2';
+  radio2.name = "spell2";
   radio2.value =`${element}`;
 
   label2.setAttribute("for", `${element}`);
@@ -104,19 +104,12 @@ spellList.forEach(element => {
   radioDiv2.appendChild(radio2)
   radioDiv2.appendChild(label2)
   radioDiv2.appendChild(br)
+
 })
 
-
-}
-
-function sliceArray(a, b) {
-    let size = 50;
-    b.push(a.splice(0, size))
-    
 }
 
 //game logic
-
 let duelButton = document.getElementById('duelButton');
 duelButton.addEventListener("click", function() {
     console.log('game has started');
@@ -124,16 +117,36 @@ duelButton.addEventListener("click", function() {
     console.log(player1);
     let player2 = document.getElementById('drop2').value
     console.log(player2);
-    let player1Spell = document.getElementById('spell1Value').value;
-    console.log('player one chose ', player1Spell);
-    let player2Spell = document.getElementById('spell2Value').value;
-    console.log('player two chose ', player2Spell);
+    let player1Spell = duelSpell();
+    console.log(player1Spell);
+    let player2Spell = duelSpell2();
+    console.log(player2Spell);
+    responsiveVoice.speak(`${player1} vs ${player2}`);
+    responsiveVoice.speak(`${player1} cast ${player1Spell} ${player2} cast ${player2Spell}`);
     checkWinner(duelApp(player1,player2,player1Spell,player2Spell))
 });
 
-function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
+duelSpell = () => {
+    let player1Spell = document.getElementById('radio1').elements['spell'].value
+    if(player1Spell === 'Charm' || player1Spell === 'Enchantment' || player1Spell === 'Curse') {
+        return player1Spell
+    } else {
+        return getRandomSpell();
+    }
+}
+
+duelSpell2 = () => {
+    let player2Spell = document.getElementById('radio2').elements['spell2'].value
+    if(player2Spell === 'Charm' || player2Spell === 'Enchantment' || player2Spell === 'Curse') {
+        return player2Spell
+    } else {
+        return getRandomSpell();
+    }
+}
+
+function duelApp(player1,player2,player1Spell,player2Spell) { // "charm" = rock, "Enchantment" = paper, "curse" = scissors
     if (player1Spell === player2Spell) {
-        return console.log("Game tied. Try again and may the best wizard win!");
+        return undefined;
     }
 
     else if (player1Spell === "Charm") {
@@ -159,22 +172,26 @@ function duelApp(player1, player2,player1Spell,player2Spell) { // "charm" = rock
     }
 }
 
+Array.prototype.random = function () {
+    return this[Math.floor((Math.random()*this.length))];
+  }
 
 //TODO:Check why not working
 getRandomName = (duelist) => {
- return randomName = duelist[Math.floor(Math.random() * duelist.length)];
+    duelist.random();
 }
 
 //TODO:Check why not working
-getRandomSpell = (spellList) => {
+getRandomSpell = () => {
+    const spellList = ["Charm", "Enchantment", 'Curse']
     randomType = spellList[Math.floor(Math.random() * spellList.length)];
     switch(randomType) {
         case "Charm": //rock
-            return charm[Math.floor(Math.random() * charm.length)]
+            return charm.random();
         case "Enchantment": // paper
-            return enchantment[Math.floor(Math.random() * enchantment.length)]
+            return enchantment.random();
         case "Curse": //scissor
-            return curse[Math.floor(Math.random() * curse.length)]
+            return curse.random();
       }  
 }
 
@@ -195,15 +212,55 @@ updateWin = async (winner) => {
 }
 
 checkWinner = async (winner) => {
-    winnersRef = db.collection('winners').doc(`${winner}`);
+    document.getElementById('victor').innerHTML = `${winner}`
+    winnersRef = await db.collection('winners').doc(`${winner}`);
     if(winnersRef.exists) {
+        responsiveVoice.speak(`${winner} wins!`);
         updateWin(`${winner}`)
     } else {
+        responsiveVoice.speak(`${winner} wins!`);
         writeInitialWin(`${winner}`)
     }
 }
 
-createTable = async () => {
-    const snapshot = await firebase.firestore().collection('winners').get()
-    return snapshot.docs.map(doc => doc.data());
+document.getElementById('winnersButton').addEventListener("click", function() {
+    createTable();
+})
+
+getTableData = async () => {
+    winners = await firebase.firestore().collection('winners').get()
+    return await winners.docs.map(doc => doc.data());
 }
+
+createTable = () => {
+    let table = document.getElementById("winnersInner");
+    getTableData()
+    .then( (winners) => {
+        generateTable(table,winners)
+        generateTableHead(table,Object.keys(winners[0]))
+        
+})
+}
+
+function generateTableHead(table, data) {
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data) {
+      let th = document.createElement("th");
+      let text = document.createTextNode(key);
+      th.appendChild(text);
+      row.appendChild(th);
+    }
+  }
+  
+  function generateTable(table, data) {
+    for (let element of data) {
+      let row = table.insertRow();
+      for (key in element) {
+        let cell = row.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+      }
+    }
+  }
+  
