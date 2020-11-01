@@ -122,6 +122,7 @@ duelButton.addEventListener("click", function() {
     let player2Spell = duelSpell2();
     console.log(player2Spell);
     responsiveVoice.speak(`${player1} vs ${player2}`);
+    responsiveVoice.pause();
     responsiveVoice.speak(`${player1} cast ${player1Spell[0]} ${player2} cast ${player2Spell[0]}`);
     checkWinner(duelApp(player1,player2,player1Spell[1],player2Spell[1]))
 });
@@ -261,30 +262,26 @@ createTable = () => {
     getTableData()
     .then( (winners) => {
         generateTable(table,winners)
-        generateTableHead(table,Object.keys(winners[0]))
-        
 })
 }
 
-function generateTableHead(table, data) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data) {
-      let th = document.createElement("th");
-      let text = document.createTextNode(key);
-      th.appendChild(text);
-      row.appendChild(th);
-    }
-  }
-  
+
   function generateTable(table, data) {
     for (let element of data) {
       let row = table.insertRow();
       for (key in element) {
         let cell = row.insertCell();
-        let text = document.createTextNode(element[key]);
+        let text = document.createTextNode(element.name);
+        let cell1 = row.insertCell();
+        let text1 = document.createTextNode(element.wins);
         cell.appendChild(text);
+        cell1.appendChild(text1);
+        break;
       }
     }
   }
+
+  createTable();
+
+
   
