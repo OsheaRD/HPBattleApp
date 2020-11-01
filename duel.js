@@ -198,7 +198,6 @@ getRandomName = (duelist) => {
      return duelist.random();
 }
 
-
 getRandomSpell = (spell) => {
     const spellList = ["Charm", "Enchantment", 'Curse']
     if(spellList.includes(spell)) {
