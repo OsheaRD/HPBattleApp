@@ -1,0 +1,27 @@
+{
+  "name": "hpbattleapp",
+  "version": "1.0.0",
+  "description": "Harry Potter Dueling App",
+  "main": "landing.html",
+  "dependencies": {
+    "firebase": "^8.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsheaRD/HPBattleApp.git"
+  },
+  "keywords": [
+    "Node",
+    "heroku"
+  ],
+  "author": "Andre, Ohsea, Josue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OsheaRD/HPBattleApp/issues"
+  },
+  "homepage": "https://github.com/OsheaRD/HPBattleApp#readme"
+}
