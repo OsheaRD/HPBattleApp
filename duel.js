@@ -122,7 +122,7 @@ duelButton.addEventListener("click", function() {
     let player2Spell = duelSpell2();
     console.log(player2Spell);
     responsiveVoice.speak(`${player1} vs ${player2}`);
-    responsiveVoice.pause();
+//    responsiveVoice.pause();
     responsiveVoice.speak(`${player1} cast ${player1Spell[0]} ${player2} cast ${player2Spell[0]}`);
     checkWinner(duelApp(player1,player2,player1Spell[1],player2Spell[1]))
 });

@@ -75,12 +75,12 @@ body {
 #duel{
       font-size: 20pt;
       color: aquamarine;
-      
       display: flex;
       justify-content: center;
       width: 750px;
       height: 70px;
-      padding: auto;
+      padding-top:10px;
+      padding-bottom: 10px;
       border: 3px solid white;
       box-sizing: border-box;
 
@@ -151,3 +151,8 @@ body {
   font-size: 12pt;
 }
 
+#resetButton{
+  background-color: darkmagenta;
+  color: black;
+  font-size: 14pt;
+}
