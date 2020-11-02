@@ -258,6 +258,15 @@ checkWinner = async (winner) => {
     }
 }
 
+function myFunction() {
+    var x = document.getElementById("winnersTable");
+    if (x.style.display === "none") {
+      x.style.display = "inline-block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 document.getElementById('winnersButton').addEventListener("click", function() {
     createTable();
 })
