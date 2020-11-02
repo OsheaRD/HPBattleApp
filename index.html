@@ -15,12 +15,14 @@
 </head>
 
 <body>
-    <!-- <img class="bg" src="/img/potterduel.jpg" /> -->
+  
 <div class="titles">
     <h1>Harry Potter</h1>
     <h2>Battle App</h2>
 </div>
-    <div class="container">
+<div class="gameboard">
+
+    <div class="container1">
         <div class="row">
              <div class="col-md-6">
                 <p class="text-center">
@@ -68,10 +70,10 @@
 
 <div class="container">
 <div class="row">
-    <div class="col-md-3 offset-4 ">
+    <div class="col-md-8 offset-2 ">
       
         <div class="duel">
-       
+       <div id = "duel">
         <div class="duelers">
             <span id='dueler1'></span>
             <span id='dueler2'></span>
@@ -89,7 +91,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 offset-4 ">
+        <div class="col-md-4 offset-4 ">
             <div id="victor"></div>
     </div>
   
@@ -98,15 +100,26 @@
 
    <div class="container">
     <div class="row">
-        <div class="col-md-3 offset-4 ">
-            <div id="restart"></div>
-            <div id="restartGame">
+        <div class="col-md-4 offset-4 ">
+            <div class="restart"></div>
+            <div class="restartGame">
                 <button id='resetButton'>Restart Game</button>
             </div>
     </div>
 
+</div>
+
+
+
+
     <div class="container">
-        <button id='winnersButton'>Historic Winners</button>
+        <div class="row">
+        <button id='winnersButton'>Leader Boards</button>
+    </div>
+
+
+    <div class="container">
+        <div class="flex-row"></div>
         <div id="winnersTable">
             <table id="winnersInner">
                 <thead>
@@ -124,6 +137,14 @@
               </table>
         </div>
     </div>
+
+</div>
+
+
+
+
+
+
 
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->

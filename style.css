@@ -21,9 +21,9 @@ h1{
     font-size: 220px;
     text-align: center;
     color: white;
-    stroke-width: 5px;
-    stroke: black;
     margin: -30px;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: black;
 
 }
 
@@ -31,48 +31,55 @@ h2{
     /* position: sticky; */
     top: auto;
     font-family: harryp__;
-    font-size: 100px;
+    font-size: 80px;
     text-align: center;
-    color: white;
+    color:black;
     stroke-width: 2px;
     stroke: black;
     margin: auto;
+ 
 
 }
 
 body { 
-    background: url(/img/potterduel.jpg) no-repeat center center fixed; 
+ 
+    background: url(/img/234368.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    text-align: center;
   }
 
   .Player1{
-    color: orange;
+    flex-direction: column;
+    color: white;
     font-size: 22px;
     display: flex;
     justify-content: center;
-    padding-top: 120px;
-
+    padding-top: 10px;
+    position: ;
   }
 
   .player2{
+    flex-direction: column;
+    color: white;
     font-size: 22px;
     display: flex;
     justify-content: center;
-    padding-top: 120px;
+    padding-top: 10px;
+
 
   }
 
-  .duel{
+#duel{
       font-size: 20pt;
       color: aquamarine;
-      background-color: black;
+      
       display: flex;
       justify-content: center;
-      width: auto;
-      height: 100px;
+      width: 750px;
+      height: 70px;
       padding: auto;
       border: 3px solid white;
       box-sizing: border-box;
@@ -88,7 +95,7 @@ body {
     width: auto;
     height: 150px;
     padding: auto;
-    border: 3px solid white;
+    border: 3px solid darkmagenta;
     box-sizing: border-box;
   }
 
@@ -108,4 +115,39 @@ body {
   }
 
 
-  
+  .restart{
+    justify-content: center;
+  }
+
+  .gifbackground{
+    background-image: url(/img/wavegif.gif) ;
+  }
+
+  #spellRadio1{
+    background-color:rgba(0,0,0,0.3)
+  }
+
+  #spellRadio2{
+    background-color:rgba(0,0,0,0.3)
+  }
+
+.gameboard{
+
+}
+
+#winnersTable{
+  display: inline-flex;
+  font-size: 15pt;
+  background: white;
+  text-align: left;
+  height: 150px;
+  overflow-y: scroll;
+  border: 8px solid white;
+  box-sizing: border-box;
+
+}
+
+#winnersButton{
+  font-size: 12pt;
+}
+
