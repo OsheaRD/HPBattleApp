@@ -18,8 +18,8 @@ The HP Battle App features a generic wizard boy who casts spells with his school
 
 ## Contributors
 
-Team Member | Role
+Team Member  | Role
 ------------ | -------------
-Andre Davis | Developer
-Josue Majano | Developer
-Oshea Deans | Design, UI/UX 
+Andre Davis  | Dev. / Backend
+Josue Majano | Dev. / Logic
+Oshea Deans  | Dev. / Design
