@@ -3,7 +3,7 @@
 
 ## Screenshots
 
-![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/HPBA%20landing2.png =250x250)
+![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/HPBA%20landing2.png){:height="50%" width="50%"}
 
 
 ![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/hpbaindexhtml.png =250x400)
