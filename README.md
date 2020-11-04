@@ -2,6 +2,7 @@
 ![Alt Text](https://media.giphy.com/media/BJmTtZL4hova8/giphy.gif)
 
 
+![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/hpbaindexhtml.png)
 ## Overview
 
 The HP Battle App features a generic wizard boy who casts spells with his school mates.  Attempt to select the correct character and spell to be the victor!
