@@ -157,14 +157,3 @@ body {
   font-size: 14pt;
 }
 
-.mystyle{
-  display: inline-flex;
-  font-size: 15pt;
-  background: green;
-  text-align: left;
-  height: 150px;
-  overflow-y: scroll;
-  border: 8px solid red;
-  box-sizing: border-box;
-  
-}
