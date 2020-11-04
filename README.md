@@ -1,6 +1,10 @@
 # HP Battle App
 ![Alt Text](https://media.giphy.com/media/BJmTtZL4hova8/giphy.gif)
 
+## Screenshots
+
+![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/HPBA%20landing2.png)
+
 
 ![alt text](https://github.com/OsheaRD/HPBattleApp/blob/main/img/hpbaindexhtml.png)
 ## Overview
